@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-
+using Xunit;
 
 namespace Assignment3TestSuite
 {
@@ -31,11 +31,10 @@ namespace Assignment3TestSuite
 
 
         //////////////////////////////////////////////////////////
-        /// 
-        /// Testing Constrains
-        /// 
-        ////////////////////////////////////////////////////////// 
-#if COMMENT
+/// 
+/// Testing Constrains
+/// 
+////////////////////////////////////////////////////////// 
         [Fact]
         public void Constraint_ConnectionWithoutRequest_ShouldConnect()
         {
@@ -75,6 +74,7 @@ namespace Assignment3TestSuite
 
             Assert.Contains("illegal method", response.Status.ToLower());
         }
+#if COMMENT
 
 
         [Theory]
