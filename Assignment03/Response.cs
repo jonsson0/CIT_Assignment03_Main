@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CIT_Assignment03
+namespace Assignment03
 {
     internal class Response
     {

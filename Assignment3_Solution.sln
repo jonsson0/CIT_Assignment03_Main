@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment3TestSuite", "Assignment3TestSuite\Assignment3TestSuite.csproj", "{61F16FBC-B934-4905-9DF5-76FEE1E8D946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment03", "Assignment03\Assignment03.csproj", "{FE1828BE-052D-4359-BFD4-E57B8995A828}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIT_Assignment03", "Assignment03\CIT_Assignment03.csproj", "{FE1828BE-052D-4359-BFD4-E57B8995A828}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

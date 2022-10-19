@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.IO;
-using CIT_Assignment03;
+using Assignment03;
 
 Console.WriteLine("Hello, World!");
 
