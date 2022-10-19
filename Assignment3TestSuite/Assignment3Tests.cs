@@ -1,15 +1,11 @@
 //#define COMMENT
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Xunit;
-
-
 
 
 namespace Assignment3TestSuite
@@ -39,14 +35,14 @@ namespace Assignment3TestSuite
         /// Testing Constrains
         /// 
         ////////////////////////////////////////////////////////// 
-
+#if COMMENT
         [Fact]
         public void Constraint_ConnectionWithoutRequest_ShouldConnect()
         {
             var client = Connect();
             Assert.True(client.Connected);
         }
-//#if COMMENT
+
         /*    Method Tests     */
 
         [Fact]
@@ -79,6 +75,7 @@ namespace Assignment3TestSuite
 
             Assert.Contains("illegal method", response.Status.ToLower());
         }
+
 
         [Theory]
         [InlineData("create")]
@@ -577,7 +574,7 @@ namespace Assignment3TestSuite
             Assert.Contains("5 not found", response.Status.ToLower());
         }
 
-//#endif
+#endif
 
 
         /**********************************************************
@@ -640,7 +637,9 @@ namespace Assignment3TestSuite
                 } while (bytesread == 2048);
                 
                 var responseData = Encoding.UTF8.GetString(memStream.ToArray());
-                return JsonSerializer.Deserialize<Response>(responseData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
+                return JsonSerializer.Deserialize<Response>(responseData);
+                // if the naming policy is used you need to do the same on the server side
+                //return JsonSerializer.Deserialize<Response>(responseData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
             }
         }
     }
