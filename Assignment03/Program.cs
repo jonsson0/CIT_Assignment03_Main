@@ -15,7 +15,6 @@ server.Start();
 
 Console.WriteLine("server is started.......");
 
-//int i = 0;
 while (true)
 {
     Console.WriteLine("waiting for a connection....");
@@ -28,6 +27,9 @@ while (true)
         var request = readRequest(stream);
 
         var response = new Response("", "");
+        Console.WriteLine("THIS IS THE NEW RESPONSE:");
+        Console.WriteLine(JsonSerializer.Serialize<Response>(response));
+
         Console.WriteLine("THIS IS THE REQUEST METHOD:");
         Console.WriteLine(request.Method);
 
@@ -47,7 +49,7 @@ while (true)
 
     void sendRespond(NetworkStream stream, Response response)
     {
-        var responseAsJson = JsonSerializer.Serialize<Response>(response, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+        var responseAsJson = JsonSerializer.Serialize<Response>(response);
 
         //  Console.WriteLine(responseAsJson);
 
@@ -96,15 +98,19 @@ while (true)
 
         Console.WriteLine("after missing...");
 
+        
         // string[] methods = { "create", "read", "update", "delete", "echo" };
 
         Console.WriteLine("starting illegal...");
-        if (request.Method == "create")
+        if (request.Method != "create")
         {
+            Console.WriteLine("THIS IS THE REQUEST AS JSON");
+            Console.WriteLine(JsonSerializer.Serialize<Request>(request));
             response.addToStatus("illegal method");
         }
 
         Console.WriteLine("THIS IS STATUS AFTER ILLEGAL:");
         Console.WriteLine(response.Status);
+        
     }
 }
