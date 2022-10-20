@@ -10,7 +10,7 @@ namespace CIT_Assignment03
     {
         public string? Method { get; set; }
         public string? Path { get; set; }
-        public DateTime? Date { get; set; }
+        public string? Date { get; set; }
         public string? Body { get; set; }
 
         /*  public Request(string method, string path, DateTime date, string body)

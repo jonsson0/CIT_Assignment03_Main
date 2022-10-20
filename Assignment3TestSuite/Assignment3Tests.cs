@@ -35,14 +35,14 @@ namespace Assignment3TestSuite
 /// Testing Constrains
 /// 
 ////////////////////////////////////////////////////////// 
-/*  
+  
         [Fact]
         public void Constraint_ConnectionWithoutRequest_ShouldConnect()
         {
             var client = Connect();
             Assert.True(client.Connected);
         }
-*/
+  
 
         /*    Method Tests     */
 
@@ -76,7 +76,7 @@ namespace Assignment3TestSuite
 
             Assert.Contains("illegal method", response.Status.ToLower());
         }
-#if COMMENT
+
 
 
         [Theory]
@@ -178,7 +178,6 @@ namespace Assignment3TestSuite
             Assert.Contains("illegal body", response.Status.ToLower());
 
         }
-
         /* Echo Test */
         [Fact]
         public void Echo_RequestWithBody_ReturnsBody()
@@ -198,6 +197,7 @@ namespace Assignment3TestSuite
             Assert.Equal("Hello World", response.Body);
 
         }
+
 
         //////////////////////////////////////////////////////////
         /// 
@@ -226,7 +226,7 @@ namespace Assignment3TestSuite
 
             Assert.Equal(expectedResponse.ToJson().ToLower(), response.ToJson().ToLower());
         }
-
+#if COMMENT
         [Fact]
         public void Constraint_RequestWithInvalidPathId_StatusBadRequest()
         {
@@ -639,7 +639,7 @@ namespace Assignment3TestSuite
                 } while (bytesread == 2048);
                 
                 var responseData = Encoding.UTF8.GetString(memStream.ToArray());
-                return JsonSerializer.Deserialize<Response>(responseData);
+                return JsonSerializer.Deserialize<Response>(responseData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
                 // if the naming policy is used you need to do the same on the server side
                 //return JsonSerializer.Deserialize<Response>(responseData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
             }
