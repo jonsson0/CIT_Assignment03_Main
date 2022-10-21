@@ -8,13 +8,13 @@ namespace CIT_Assignment03
 {
     class Category
     {
-        public int Cid { get; set; }
-        public string Name { get; set; }
+        public int cid { get; set; }
+        public string name { get; set; }
 
         public Category(int cid, string name)
         {
-            this.Cid = cid;
-            this.Name = name;
+            this.cid = cid;
+            this.name = name;
         }
 
 

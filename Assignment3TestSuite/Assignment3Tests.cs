@@ -1,5 +1,6 @@
 //#define COMMENT
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -35,14 +36,14 @@ namespace Assignment3TestSuite
 /// Testing Constrains
 /// 
 ////////////////////////////////////////////////////////// 
-  
+  /*
         [Fact]
         public void Constraint_ConnectionWithoutRequest_ShouldConnect()
         {
             var client = Connect();
             Assert.True(client.Connected);
         }
-  
+  */
 
         /*    Method Tests     */
 
@@ -226,7 +227,7 @@ namespace Assignment3TestSuite
 
             Assert.Equal(expectedResponse.ToJson().ToLower(), response.ToJson().ToLower());
         }
-#if COMMENT
+
         [Fact]
         public void Constraint_RequestWithInvalidPathId_StatusBadRequest()
         {
@@ -268,6 +269,7 @@ namespace Assignment3TestSuite
             Assert.Equal(expectedResponse.ToJson().ToLower(), response.ToJson().ToLower());
         }
 
+
         [Fact]
         public void Constraint_UpdateWithOutPathId_StatusBadRequest()
         {
@@ -308,7 +310,6 @@ namespace Assignment3TestSuite
 
             Assert.Equal(expectedResponse.ToJson().ToLower(), response.ToJson().ToLower());
         }
-
 
 
         /* Read tests */
@@ -368,6 +369,7 @@ namespace Assignment3TestSuite
             Assert.Equal(expectedResponse.ToJson(), response.ToJson());
         }
 
+
         [Fact]
         public void Request_ReadCategoryWithInvalidId_StatusNotFound()
         {
@@ -423,6 +425,7 @@ namespace Assignment3TestSuite
             client.SendRequest(resetRequest.ToJson());
             client.ReadResponse();
         }
+
 
         [Fact]
         public void Request_UpdateCategotyValidIdAndBody_ChangedCategoryName()
@@ -559,6 +562,8 @@ namespace Assignment3TestSuite
             Assert.Contains("1 ok", response.Status.ToLower());
         }
 
+
+
         [Fact]
         public void Request_DeleteCategoryWithInvalidId_StatusNotFound()
         {
@@ -575,7 +580,7 @@ namespace Assignment3TestSuite
 
             Assert.Contains("5 not found", response.Status.ToLower());
         }
-
+#if COMMENT
 #endif
 
 
@@ -609,12 +614,12 @@ namespace Assignment3TestSuite
     {
         public static string ToJson(this object data)
         {
-            return JsonSerializer.Serialize(data, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+            return JsonSerializer.Serialize(data);
         }
 
         public static T FromJson<T>(this string element)
         {
-            return JsonSerializer.Deserialize<T>(element, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+            return JsonSerializer.Deserialize<T>(element);
         }
 
         public static void SendRequest(this TcpClient client, string request)
@@ -639,7 +644,7 @@ namespace Assignment3TestSuite
                 } while (bytesread == 2048);
                 
                 var responseData = Encoding.UTF8.GetString(memStream.ToArray());
-                return JsonSerializer.Deserialize<Response>(responseData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+                return JsonSerializer.Deserialize<Response>(responseData);
                 // if the naming policy is used you need to do the same on the server side
                 //return JsonSerializer.Deserialize<Response>(responseData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
             }
