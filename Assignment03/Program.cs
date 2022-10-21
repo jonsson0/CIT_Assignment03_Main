@@ -48,6 +48,7 @@ Console.WriteLine("server is started.......");
 
 while (true)
 {
+
     Console.WriteLine("/* ---------------------- START OF PROGRAM --------------------------------------- */");
     Console.WriteLine("waiting for a connection....");
     var client = server.AcceptTcpClient();

@@ -13,13 +13,5 @@ namespace CIT_Assignment03
         public string? Date { get; set; }
         public string? Body { get; set; }
 
-        /*  public Request(string method, string path, DateTime date, string body)
-          {
-              this.method = method;
-              this.path = path;
-              this.date = date;
-              this.body = body;
-          }
-        */
     }
 }
