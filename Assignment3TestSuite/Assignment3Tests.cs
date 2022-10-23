@@ -37,14 +37,14 @@ namespace Assignment3TestSuite
 /// 
 ////////////////////////////////////////////////////////// 
   
-        /*
+        
         [Fact]
         public void Constraint_ConnectionWithoutRequest_ShouldConnect()
         {
             var client = Connect();
             Assert.True(client.Connected);
         }
-        */
+        
   
 
         /*    Method Tests     */
