@@ -47,14 +47,19 @@ server.Start();
 Console.WriteLine("server is started.......");
 
 
+
 while (true)
 {
-
+    /*
     Thread thread = new Thread(program);
-    Thread.Sleep(750);
+    Thread.Sleep(500);
     thread.Start();
+    */
 
+    program();
 }
+
+
 
 
 void program()
