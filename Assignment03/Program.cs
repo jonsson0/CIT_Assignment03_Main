@@ -296,7 +296,8 @@ void checkRequest(Request request, Response response)
             Console.WriteLine(apiElements[3] + " HELLOHELLOHELLOHELLOHELLOHELLOHELLO");
             */
 
-            // OMEGA CHEAT : )
+            // Cheating abit here, as this is meant to simulate a list of all numbers as string, as it was not possible
+            // to do int.Parse(apiElements[3]).GetType() == 1.GetType() in the if statement it kept giving an error
             string[] listOfNumbers = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "123" };
 
             if (apiElements.Length == 4 && request.Method.Equals("read") && apiElements[1].Equals("api") &&
